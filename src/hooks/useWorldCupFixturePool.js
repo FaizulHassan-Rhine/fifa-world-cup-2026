@@ -67,7 +67,9 @@ export function useWorldCupFixturePool(opts = {}) {
       setLastUpdated(new Date())
     } catch (e) {
       if (!mounted.current) return
-      setError(e instanceof Error ? e.message : "Failed to load fixtures")
+      const msg = e instanceof Error ? e.message : "Failed to load fixtures"
+      console.warn("[WorldCupFixturePool]", msg)
+      setError(msg)
     } finally {
       if (mounted.current) setLoading(false)
     }

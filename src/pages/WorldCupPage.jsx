@@ -131,38 +131,13 @@ export default function WorldCupPage() {
                     : "Load live scores from API"}
               </button>
             </div>
-            {error ? (
-              <p className="max-w-xl text-xs text-rose-400 sm:text-right">
-                {error}{" "}
-                <span className="text-zinc-500">
-                  (Check <code className="text-zinc-400">API_FOOTBALL_KEY</code> /{" "}
-                  <code className="text-zinc-400">API_FOOTBALL_MODE</code> in{" "}
-                  <code className="text-zinc-400">.env.local</code> and restart{" "}
-                  <code className="text-zinc-400">npm run dev</code>.)
-                </span>
-              </p>
-            ) : !liveActive ? (
+            {!liveActive ? (
               <p className="max-w-xl text-[11px] text-zinc-500 sm:text-right">
                 No API calls until you click — saves your daily quota.
               </p>
             ) : null}
           </div>
         </div>
-
-        <p className="max-w-3xl text-sm leading-relaxed text-zinc-400">
-          Kickoffs are stored in{" "}
-          <strong className="font-medium text-zinc-300">US Eastern (ET)</strong>{" "}
-          as published for broadcast, then shown in{" "}
-          <strong className="font-medium text-zinc-300">
-            the stadium&apos;s local timezone
-          </strong>{" "}
-          and in{" "}
-          <strong className="font-medium text-amber-200/90">
-            Bangladesh Standard Time (BDT, UTC+6)
-          </strong>{" "}
-          using accurate zone rules (Luxon). Flags load from{" "}
-          <span className="font-mono text-zinc-500">flagcdn.com</span>.
-        </p>
 
         <GroupStandings />
 
